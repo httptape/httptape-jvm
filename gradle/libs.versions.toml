@@ -1,7 +1,7 @@
 [versions]
-kotlin = "2.3.20"
-testcontainers = "2.0.4"
-kotest = "6.1.11"
+kotlin = "2.4.0"
+testcontainers = "2.0.5"
+kotest = "6.2.1"
 junit-jupiter = "5.14.3"
 junit-platform = "1.14.3"
 
