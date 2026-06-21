@@ -1,0 +1,62 @@
+# .github/dependabot.yml
+#
+# Dependabot v2 configuration for httptape-jvm.
+#
+# Scope:
+#   - Gradle dependencies. All external versions are centralized in the
+#     version catalog (gradle/libs.versions.toml); subprojects reference
+#     them via `libs.*`, so a single root entry covers every module.
+#   - GitHub Actions used by the build.yml workflow.
+#
+# Grouping policy:
+#   - Minor + patch updates are batched into a single PR (`minor-and-patch`
+#     group); major updates ship as individual PRs so each likely-breaking
+#     change is reviewed in isolation.
+#
+# Cadence:
+#   - Weekly on Mondays at 09:00 UTC — matches the httptape core repo.
+#
+# Labels:
+#   - `dependencies` plus an ecosystem tag (`java` / `github-actions`).
+
+version: 2
+updates:
+  # ----- Gradle: root build + gradle/libs.versions.toml catalog -----
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "java"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+
+  # ----- GitHub Actions (build.yml) -----
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
