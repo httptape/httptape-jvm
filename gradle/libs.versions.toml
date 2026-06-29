@@ -2,8 +2,8 @@
 kotlin = "2.4.0"
 testcontainers = "2.0.5"
 kotest = "6.2.1"
-junit-jupiter = "6.1.0"
-junit-platform = "6.1.0"
+junit-jupiter = "6.1.1"
+junit-platform = "6.1.1"
 
 [libraries]
 testcontainers-core = { module = "org.testcontainers:testcontainers", version.ref = "testcontainers" }
